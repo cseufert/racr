@@ -14,10 +14,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
       html, body, #body, .off-canvas-wrap,.inner-wrap, .main-section {width:100%; height:100%; display:block;}
+      .racr-table-head .columns { font-size:1.4em; padding: 0.6em 0 0.6em 0; }
       .racr-result { text-align: center; }
       .racr-result-row .columns { padding: 0.6em; }
+      .racr-result-row:nth-child(even) { background: #f7f7f7; }
       .racr-result-row:hover { background-color: #eee; }
-      .racr-total .columns {font-size:1.25em; font-weight:bold;}
+      .racr-total .columns { font-size:1.25em; font-weight:bold; }
+
+      .racr-result-me { padding:0.5em 0 0.5em 0; }
+      .racr-result-me .columns { padding:0.25em; }
     </style>
 </head>
 <body>
@@ -28,9 +33,8 @@
           <section class="left-small">
             <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
           </section>
-
           <section class="middle tab-bar-section">
-            <h1 class="title">racr</h1>
+            <h1 class="title">racr - {{ eventname }}</h1>
           </section>
 
         </nav>
@@ -39,7 +43,7 @@
           <ul class="off-canvas-list racr-results">
             <li><label>Results</label></li>
             <li><a href="/results/leaderboard">Leaderboard</a></li>
-            <li><a href="#" data-view="myresult">My Results</a></li>
+            <li><a href="/results/me">My Results</a></li>
             <li><a href="#" data-view="announce">Announcements</a></li>
           </ul>
           <ul class="off-canvas-list racr-marshal">

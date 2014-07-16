@@ -19,7 +19,7 @@ racrApp.config([
                 controller: 'AnnounceCtrl'
             })
             .when('/results/me', {
-                templateUrl: '/static/html/partials/me.html',
+                templateUrl: '/static/html/partials/myresults.html',
                 controller: 'MyResultsCtrl'
             })
             .when('/event/novelty/record', {
