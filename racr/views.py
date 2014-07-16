@@ -3,6 +3,7 @@ from django.conf import settings
 
 from rest_framework import views, viewsets
 from rest_framework.response import Response
+from racr import models
 
 def main(request):
     return render_to_response('index.html', {

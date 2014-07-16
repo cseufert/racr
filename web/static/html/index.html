@@ -1,22 +1,72 @@
 <!DOCTYPE html>
 <html ng-app="racrApp">
 <head>
-    <title>{{ orgname }} Athletics Carnival</title>
+    <title>racr - {{ eventname }}</title>
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/lib/foundation5/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/static/lib/foundation5/js/foundation.min.js"></script>
     <script src="/static/js/angular.min.js"></script>
     <script src="/static/js/angular.route.min.js"></script>
     <script src="/static/js/app.js"></script>
     <script src="/static/js/controllers.js"></script>
     <link href="/static/css/site.css" type="text/css" rel="stylesheet" />
-    <link href="/static/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="/static/css/bootstrap.theme.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/lib/foundation5/css/foundation.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+      html, body, #body, .off-canvas-wrap,.inner-wrap, .main-section {width:100%; height:100%; display:block;}
+      .racr-result { text-align: center; }
+      .racr-result-row .columns { padding: 0.6em; }
+      .racr-result-row:hover { background-color: #eee; }
+    </style>
 </head>
 <body>
-<div id="title">
-    <h1 ng-bind="title"></h1>
-</div>
-<div ng-view></div>
+  <div id="body">
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <h1 class="title">racr</h1>
+          </section>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list racr-results">
+            <li><label>Results</label></li>
+            <li><a href="/results/leaderboard">Leaderboard</a></li>
+            <li><a href="#" data-view="myresult">My Results</a></li>
+            <li><a href="#" data-view="announce">Announcements</a></li>
+          </ul>
+          <ul class="off-canvas-list racr-marshal">
+            <li><label>Marshalling</label></li>
+            <li><a href="#" data-view="marshalllist" data-marshalllist="current">Current Event List</a></li>
+            <li><a href="#" data-view="marshalllist" data-marshalllist="all">All Events</a>
+              <ul>
+                <li><a href="#" data-view="marshalllist" data-marshalllist="track">All Track Events</a>
+                <li><a href="#" data-view="marshalllist" data-marshalllist="field">All Field Events</a>
+                <li><a href="#" data-view="marshalllist" data-marshalllist="participation">All Participation Events</a>
+              </ul>
+            </li>
+          </ul>
+          <ul class="off-canvas-list racr-admin">
+            <li><label>Administration</label></li>
+            <li><a href="#" data-view="adminmeet">Manage Meeting</a></li>
+            <li><a href="#" data-view="adminpoints">Manage Points</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section" ng-view>
+        </section>
+      <a class="exit-off-canvas"></a>
+      </div>
+    </div>
+  </div>
+  <script language="JavaScript">
+    $(document).foundation();
+  </script>
 </body>
 </html>

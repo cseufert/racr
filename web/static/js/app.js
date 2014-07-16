@@ -11,7 +11,8 @@ racrApp.config([
         $routeProvider
             .when('/results/leaderboard', {
                 templateUrl: '/static/html/partials/leaderboard.html',
-                controller: 'LeaderboardCtrl'
+                controller: 'LeaderboardCtrl',
+                name: "leaderboard"
             })
             .when('/results/announce', {
                 templateUrl: '/static/html/partials/announce.html',

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User as AuthUser
 class FieldResult(models.Model):
     user = models.ForeignKey(AuthUser)
     event = models.ForeignKey('Event')
-    result = models.IntegerField()
+    distance = models.IntegerField()
 
 
 class TrackResult(models.Model):
@@ -14,6 +14,21 @@ class TrackResult(models.Model):
     heat = models.IntegerField()
     lane = models.IntegerField()
     time = models.IntegerField()
+
+
+class RelayResult(models.Model):
+    event = models.ForeignKey('Event')
+    heat = models.IntegerField()
+    lane = models.IntegerField()
+    time = models.IntegerField()
+    member1 = models.ForeignKey(AuthUser, related_name='member1')
+    member2 = models.ForeignKey(AuthUser, related_name='member2')
+    member3 = models.ForeignKey(AuthUser, related_name='member3')
+    member4 = models.ForeignKey(AuthUser, related_name='member4')
+    member5 = models.ForeignKey(AuthUser, related_name='member5')
+    member6 = models.ForeignKey(AuthUser, related_name='member6')
+    member7 = models.ForeignKey(AuthUser, related_name='member7')
+    member8 = models.ForeignKey(AuthUser, related_name='member8')
 
 
 class ParticipateResult(models.Model):
@@ -89,7 +104,7 @@ class User(models.Model):
         (2, 'Staff'),
         (3, 'Marshall'),
     )
-
+    user = models.OneToOneField(AuthUser)
     total_points = models.IntegerField()
     dob = models.DateTimeField()
     house = models.ForeignKey('House')
