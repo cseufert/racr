@@ -1,0 +1,2 @@
+GOOGLE_OAUTH2_CLIENT_ID = "471903981584-h7o2feib80hqk77vf2m23ofoqifm5i1j.apps.googleusercontent.com"
+GOOGLE_OAUTH2_CLIENT_SECRET = "6uxa5xz4pEDuP24penk9iywl"

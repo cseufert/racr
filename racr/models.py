@@ -116,7 +116,7 @@ class User(models.Model):
 
 class School(models.Model):
     name = models.TextField()
-    created_by = models.ForeignKey(User)
+    created_by = models.ForeignKey(User, related_name='created_by')
 
 
 class AgeGroup(models.Model):

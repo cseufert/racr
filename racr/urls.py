@@ -15,5 +15,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/1/', include(router.urls)),
+    url(r'^not-registered/', 'racr.views.not_registered', name='not-registered'),
+    url(r'', include('social_auth.urls')),
     url(r'', 'racr.views.main'),
 )
