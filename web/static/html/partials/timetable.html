@@ -1,0 +1,21 @@
+<h2>Past Events:</h2>
+<div class="table">
+    <div class="table-row">
+        <div class="table-cell">Event</div>
+        <div class="table-cell">Winner</div>
+        <div class="table-cell">House</div>
+        <div class="table-cell">Record Broken?</div>
+    </div>
+</div>
+<div class="table" ng-repeat="pastEvent in timetable.pastEvents">
+    <div class="table-row">
+        <div class="table-cell">{{ pastEvent.name }}</div>
+        <div class="table-cell">{{ pastEvent.winner }}</div>
+        <div class="table-cell">{{ pastEvent.house }}</div>
+        <div class="table-cell">{{ pastEvent.record }}</div>
+    </div>
+</div>
+
+<h2>Current Events:</h2>
+
+<h2>Upcoming Events:</h2>
