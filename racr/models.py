@@ -90,6 +90,7 @@ class User(models.Model):
         (3, 'Marshall'),
     )
 
+    user = models.OneToOneField(AuthUser)
     total_points = models.IntegerField()
     dob = models.DateTimeField()
     house = models.ForeignKey('House')
@@ -101,7 +102,7 @@ class User(models.Model):
 
 class School(models.Model):
     name = models.TextField()
-    created_by = models.ForeignKey(User)
+    created_by = models.ForeignKey(User, related_name='created_by')
 
 
 class AgeGroup(models.Model):

@@ -1,13 +1,19 @@
 from django.shortcuts import render_to_response
 from django.conf import settings
+from django.http import HttpResponse
 
 from rest_framework import views, viewsets
 from rest_framework.response import Response
 
 def main(request):
+    if not request.user.is_authenticated():
+        return render_to_response('main.html')
     return render_to_response('index.html', {
         'orgname': settings.ORGNAME
     })
+
+def not_registered(request):
+    return HttpResponse("<h1>You are not registered for this event.</h1>")
 
 class TimetableViewSet(viewsets.ViewSet):
     def list(self, request):
